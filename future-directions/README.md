@@ -6,7 +6,7 @@ Based on my research—and the discovery that Brian2 already includes C++ implem
 
 ## Option A: Direct Shared Object Approach
 
-Inspired by [scipy-weave](https://github.com/scipy/scipy), this approach leverages existing C++ implementations and directly passes raw pointers to the generated code. This method bypasses much of the Python API overhead and eliminates the need for Cython during execution.
+Inspired by [scipy-weave](https://github.com/scipy/weave), this approach leverages existing C++ implementations and directly passes raw pointers to the generated code. This method bypasses much of the Python API overhead and eliminates the need for Cython during execution.
 
 ```python
 def create_runner_codeobj(group, code, ...):
