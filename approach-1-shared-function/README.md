@@ -1,4 +1,4 @@
-# Optimizing Cython Code Generation in Brian2: Reducing Code Bloat
+# Approach 1: Optimizing Cython Code Generation in Brian2: Reducing Code Bloat
 
 After diving deep into the Brian2 codebase and compilation process, I've discovered a significant opportunity for performance improvement. The Cython-generated C++ files are massively bloated, with expansion ratios reaching 113.1x! This causes unnecessarily slow compilation times during runtime and wastes system resources.
 
