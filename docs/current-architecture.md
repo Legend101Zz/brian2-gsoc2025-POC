@@ -79,7 +79,7 @@ namespace = {
 }
 ```
 
-#### How Python to Cpp Memory Access Wroks
+#### How Python to Cpp Memory Access Works
 
 ```python
 # 1. PYTHON SIDE: Variables created and stored in namespace
@@ -202,7 +202,6 @@ Brian2 cleverly solves the challenge of dynamic arrays that can resize during si
 2. **Tracking changes**: Maintaining a list of variables that might change memory location
 3. **Updating references**: Before each code object runs, the `update_namespace()` method ensures all pointer references are up to date
 
-
 ## Caching: A Critical Performance Enhancement
 
 Brian2's compilation caching system is one of the key performance optimizations that makes the framework practical for everyday use. Without it, every simulation would need to recompile all its code objects, which could take minutes.
@@ -218,16 +217,16 @@ flowchart TD
     F1 --> G1[Import Module]
     G1 --> H1[Execute Module]
   end
-  
+
   subgraph sim2["Later Simulation Run"]
     A2[Abstract Code] --> B2[Generate Hash]
     B2 --> C2{Is in cache?}
     C2 -->|Yes| G2[Import from Cache]
     G2 --> H2[Execute Module]
   end
-  
+
   F1 -.-> C2
-  
+
   style C1 fill:#ffcccc
   style C2 fill:#ccffcc
 ```
@@ -235,6 +234,7 @@ flowchart TD
 ### How Brian2's Caching Works:
 
 1. **Hash Generation**: Each piece of code is hashed based on:
+
    - The code itself
    - Python version
    - Cython version
@@ -250,8 +250,6 @@ The caching system is implemented in `extension_manager.py`, which creates a uni
 ```python
 module_name = f"_cython_magic_{hashlib.md5(str(key).encode('utf-8')).hexdigest()}"
 ```
-
-
 
 ## Challenges of Zero-Copy Memory Sharing
 
@@ -282,7 +280,6 @@ When using multithreading, memory access needs to be coordinated:
 - Brian2 uses the `restrict` keyword in C++ to indicate non-overlapping memory regions
 - This enables compiler optimizations like auto-vectorization
 - Special handling for subgroups to ensure non-overlapping access
-
 
 ## Advanced Memory Optimizations
 
