@@ -64,24 +64,9 @@ _Fig 3: Element access performance for random, sequential, and strided patterns 
 
 _Fig 4: Element access Time performance_
 
-The results are striking:
-
-- **Random Access**: 3.2× faster than NumPy and 2.1× faster than Approach 2
-- **Sequential Access**: 3.5× faster than NumPy
-- **Vector Operations**: 1.7× faster than NumPy and 1.9× faster than Approach 2
-- **Mixed Operations**: 1.4× faster than NumPy and 1.5× faster than Approach 2
-
 ![Performance Comparison](../docs/images/benchmark-approach2.png)
 
 _Fig 5: Overall performance comparison across all benchmarks for the three approaches_
-
-The most significant improvement, however, is in the **generated code quality**:
-
-1. **Elimination of Python API Calls**: The generated Cython code no longer contains any Python API calls during simulation.
-
-2. **Reduced Code Size**: The expansion ratio between template and generated code decreased from 76.8× to 12.3×.
-
-3. **Faster Compilation**: Compilation time for large simulations decreased by 68% (from minutes to seconds).
 
 ## Why Direct Raw Pointer Access Outperforms Other Approaches
 
