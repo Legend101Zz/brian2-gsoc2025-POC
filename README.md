@@ -2,6 +2,8 @@
 
 This repository explores approaches to optimize the Just-In-Time (JIT) compilation system in Brian2, a simulator for spiking neural networks. The goal is to reduce compilation overhead while maintaining the ability to share memory between Python and compiled C++ code.
 
+[**A rough exploration on my end on how current JIT works**](./docs/current-architecture.md)
+
 ## The Problem
 
 Brian2's current runtime mode uses Cython to compile neuron models dynamically. While execution is fast, the compilation process is slow due to massive code expansion - a typical 7,000 character Cython file expands to 535,000 characters of C++ code (76.8× expansion ratio).
